@@ -45,6 +45,9 @@ function appCtrl ($scope) {
 	}
 
 	$scope.selectMenuItem = function (menuId) {
+		console.log('--- selectMenuItem ---');
+		console.log('menuId: ' + (menuId));
+
 		$scope.data.selectedId = menuId;
 		$scope.hideSelectionMenu();
 	}
