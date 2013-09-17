@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title>Test - AngularJS - ng-switch with ng-include</title>
+		<link rel="stylesheet" href="static/css/vendors/normalize.css">
+		<link rel="stylesheet" href="static/css/vendors/main.css">
+		<link rel="stylesheet" href="static/css/app.css">
+		<script src="static/js/vendors/modernizr-2.6.2.min.js"></script>
+		<script type="text/javascript" src="static/js/app.js"></script>
+	</head>
+
+	<body>
+		<h1>Test - AngularJS - ng-switch with ng-include</h1>
+
+		<div ng-app="">
+			<div ng-controller="appCtrl">
+				
+				<div class="selection-menu">
+					<div class="toggle" ng-click="showSelectionMenu()">
+						<div class="label">{{getSelectedMenuLabel()}}</div>
+					</div>
+					<div class="list" ng-show="data.isListVisible" ng-hide="!data.isListVisible">
+						<ul>
+							<li ng-repeat="menuItem in data.menuItems">
+								<a href="#" class="{{menuItem.id}}" ng-click="alert('ta mère')">{{menuItem.label}}</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div ng-switch on="data.selectedId">
+					<div ng-switch-when="item1"></div>
+						<h2>Header 01: Not Part of Fragment</h2>
+						<div ng-include src=" 'static/fragments/item-01.html' "></div>
+					</div>
+					<div ng-switch-when="item2"></div>
+						<h2>Header 02: Not Part of Fragment</h2>
+						<div ng-include src=" 'static/fragments/item-02.html' "></div>
+					</div>
+					<div ng-switch-when="item3"></div>
+						<h2>Header 03: Not Part of Fragment</h2>
+						<div ng-include src=" 'static/fragments/item-03.html' "></div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<script type="text/javascript" src="static/js/vendors/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="static/js/vendors/angular.min.js"></script>
+
+	</body>
+</html>
